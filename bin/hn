@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'hntrendz'
+
+Hntrendz.fetch_posts.each do |p|
+  puts
+  puts "## #{p.title}".yellow.bold
+  puts [' ' * 25, "#{p.comments}".cyan, 'comments', "#{p.points}".cyan, 'points'].join(' ')
+end
+
+puts
