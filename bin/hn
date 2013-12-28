@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'colorize'
 require 'hntrendz'
 
 Hntrendz.fetch_posts.each do |p|
