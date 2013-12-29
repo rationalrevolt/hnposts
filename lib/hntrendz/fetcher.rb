@@ -16,7 +16,8 @@ module Hntrendz
       @posts = (0..post_count).collect do | indx |
         Post.new title: titles[indx],
                  points: points[indx],
-                 comments: comments[indx]
+                 comments: comments[indx],
+                 position: (indx + 1)
       end
     end
       
@@ -25,7 +26,7 @@ module Hntrendz
     attr_reader :hn_doc
 
     def _titles
-      hn_doc.css('td[class=title] a').collect { |tag| tag.text }
+      hn_doc.css('td[class=title] a').collect { |tag| tag.text.strip }
     end
 
     def _points

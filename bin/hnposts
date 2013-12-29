@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'colorize'
+require 'hntrendz'
+
+enc = Encoding.find 'ASCII'
+enc_opts = {
+  :invalid => :replace,
+  :undef   => :replace,
+  :replace => ''
+}
+
+posts = Hntrendz.fetch_posts
+
+puts "Hacker News Stories".red.bold
+posts.each do |p|
+  puts "#{format('%2d', p.position)}. #{p.title.blue} (#{p.comments.to_s.yellow.bold} #{"comments".yellow}, #{p.points.to_s.yellow.bold} #{"points".yellow})".encode(enc,enc_opts)
+end
