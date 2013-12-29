@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = HNPosts::VERSION
   spec.authors       = ["Sankaranarayanan Viswanathan"]
   spec.email         = ["rationalrevolt@gmail.com"]
-  spec.summary       = %q{Fetch HN Posts}
+  spec.summary       = %q{Fetch front page articles from Hacker News}
   spec.description   = %q{N/A}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/rationalrevolt/hnposts"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

@@ -4,11 +4,11 @@ Fetch front page articles from Hacker News
 
 ## Installation
 
-    $ bundle install
+    $ gem install hnposts
 
 ## Usage
 
-    $ bundle exec bin/hnposts
+    $ hnposts
 
 ## Contributing
 
