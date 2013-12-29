@@ -1,10 +1,10 @@
 require 'open-uri'
 require 'nokogiri'
-require 'hntrendz/version'
-require 'hntrendz/post'
-require 'hntrendz/fetcher'
+require 'hnposts/version'
+require 'hnposts/post'
+require 'hnposts/fetcher'
 
-module Hntrendz
+module HNPosts
 
   def self.fetch_posts
     Fetcher.new.fetch_posts

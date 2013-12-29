@@ -1,4 +1,4 @@
-module Hntrendz
+module HNPosts
 
   class Post
     

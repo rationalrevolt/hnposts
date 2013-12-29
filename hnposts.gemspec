@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'hntrendz/version'
+require 'hnposts/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "hntrendz"
-  spec.version       = Hntrendz::VERSION
+  spec.name          = "hnposts"
+  spec.version       = HNPosts::VERSION
   spec.authors       = ["Sankaranarayanan Viswanathan"]
   spec.email         = ["rationalrevolt@gmail.com"]
-  spec.summary       = %q{Generate HN Trends}
+  spec.summary       = %q{Fetch HN Posts}
   spec.description   = %q{N/A}
   spec.homepage      = ""
   spec.license       = "MIT"

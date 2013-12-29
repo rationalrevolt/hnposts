@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'colorize'
-require 'hntrendz'
+require 'hnposts'
 
 enc = Encoding.find 'ASCII'
 enc_opts = {
@@ -10,7 +10,7 @@ enc_opts = {
   :replace => ''
 }
 
-posts = Hntrendz.fetch_posts
+posts = HNPosts.fetch_posts
 
 puts "Hacker News Stories".red.bold
 posts.each do |p|
