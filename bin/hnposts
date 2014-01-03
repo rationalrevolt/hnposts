@@ -12,7 +12,15 @@ enc_opts = {
 
 posts = HNPosts.fetch_posts
 
-puts "Hacker News Stories".red.bold
-posts.each do |p|
-  puts "#{format('%2d', p.position)}. #{p.title.blue} | #{p.comments.to_s.yellow.bold} #{"comments".yellow} | #{p.points.to_s.yellow.bold} #{"points".yellow}".encode(enc,enc_opts)
+if STDOUT.tty?
+  puts "Hacker News Stories".red.bold
+  posts.each do |p|
+    puts "#{format('%2d', p.position)}. #{p.title.blue} | " \
+         "#{p.comments.to_s.yellow.bold} #{"comments".yellow} | " \
+         "#{p.points.to_s.yellow.bold} #{"points".yellow}".encode(enc,enc_opts)
+  end
+else
+  posts.each do |p|
+    puts "#{p.title} | #{p.comments} comments | #{p.points} points".encode(enc,enc_opts)
+  end
 end
