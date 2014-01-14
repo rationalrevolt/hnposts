@@ -11,10 +11,11 @@ module HNPosts
     def fetch_posts
       return @posts if @posts
       
-      titles, points, comments = _titles, _points, _comments
+      titles, urls, points, comments = _titles, _urls, _points, _comments
       post_count = titles.size - 2
       @posts = (0..post_count).collect do | indx |
         Post.new title: titles[indx],
+                 url: urls[indx],
                  points: points[indx],
                  comments: comments[indx],
                  position: (indx + 1)
@@ -27,6 +28,10 @@ module HNPosts
 
     def _titles
       hn_doc.css('td[class=title] a').collect { |tag| tag.text.strip }
+    end
+
+    def _urls
+      hn_doc.css('td[class=title] a').collect { |tag| tag.attributes['href'].value }
     end
 
     def _points
