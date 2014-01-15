@@ -11,10 +11,11 @@ module HNPosts
     def fetch_posts
       return @posts if @posts
       
-      titles, urls, points, comments = _titles, _urls, _points, _comments
-      post_count = titles.size - 2
-      @posts = (0..post_count).collect do | indx |
-        Post.new title: titles[indx],
+      post_ids, titles, urls, points, comments = _post_ids, _titles, _urls, _points, _comments
+      post_count = post_ids.size
+      @posts = (0...post_count).collect do | indx |
+        Post.new post_id: post_ids[indx],
+                 title: titles[indx],
                  url: urls[indx],
                  points: points[indx],
                  comments: comments[indx],
@@ -26,6 +27,10 @@ module HNPosts
 
     attr_reader :hn_doc
 
+    def _post_ids
+      hn_doc.css('td > center > a').collect { |tag| /up_(\d+)/.match(tag.attributes['id'].value)[1] }
+    end
+    
     def _titles
       hn_doc.css('td[class=title] a').collect { |tag| tag.text.strip }
     end

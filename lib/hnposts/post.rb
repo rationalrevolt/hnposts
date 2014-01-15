@@ -2,18 +2,19 @@ module HNPosts
 
   class Post
     
-    attr_accessor :title, :points, :comments, :position, :url
+    attr_reader :post_id, :title, :url, :points, :comments, :position
 
     def initialize( options )
-      @title = options[:title] || "No Title"
-      @url = options[:url] || "http://unknown/url"
-      @points = options[:points] || 0
-      @comments = options[:comments] || 0
-      @position = options[:position] || 0
+      @post_id = options[:post_id]
+      @title = options[:title]
+      @url = options[:url]
+      @points = options[:points]
+      @comments = options[:comments]
+      @position = options[:position]
     end
 
     def to_s
-      "#{position}. #{title}, #{points} points #{comments} comments, #{url}"
+      "#{post_id} - position #{position}, #{title}, #{points} points #{comments} comments, #{url}"
     end
     
   end
