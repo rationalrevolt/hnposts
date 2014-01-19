@@ -31,7 +31,7 @@ module HNPosts
         /^up_(\d+)$/.match(vote_node.attributes['id'])[1]
       else
         /^item\?id=(\d+)$/.match(title_node.attributes['href'])[1]
-      end
+      end.to_i
     end
     
     def title tr
