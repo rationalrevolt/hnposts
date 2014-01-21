@@ -27,11 +27,14 @@ module HNPosts
     def post_id tr
       vote_node = tr.css('td > center > a')[0]
       title_node = tr.css('td[class=title] > a')[0]
+      puts title_node
       if vote_node
         /^up_(\d+)$/.match(vote_node.attributes['id'])[1]
       else
         /^item\?id=(\d+)$/.match(title_node.attributes['href'])[1]
       end.to_i
+    rescue
+      nil
     end
     
     def title tr
