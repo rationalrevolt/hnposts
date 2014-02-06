@@ -10,6 +10,10 @@ Fetch front page articles from Hacker News
 
     $ hnposts
 
+## Screenshot
+
+![hnposts](pics/hnposts.png)
+
 ## Contributing
 
 1. Fork it ( http://github.com/rationalrevolt/hnposts/fork )
